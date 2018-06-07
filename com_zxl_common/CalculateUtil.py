@@ -2,13 +2,18 @@
 #coding=utf-8
 import random
 import sys
+import time
 from com_zxl_data.CalculateData import *
 from com_zxl_common.InputUtil import *
 from com_zxl_common.RegularUtil import *
+from com_zxl_common.DBUtil import *
+
+
 class CalculateUtil(BaseUtil):
 
 	mInputUtil = InputUtil()
 	mRegularUtil = RegularUtil()
+	mDBUtil = DBUtil()
 
 	# def __init__(self):
 	# 	self.mPrintUtil.show("CalculateUtil init...")
@@ -84,6 +89,7 @@ class CalculateUtil(BaseUtil):
 			self.__check_calculate_result(mCalculateData, mCalculateResult)
 		elif input_content == 'q':
 			self.mPrintUtil.show("\nByeBye\n")
+			self.mDBUtil.close_db()
 			sys.exit()
 		elif not self.mRegularUtil.do_regular(input_content, r"(\d+)(.\d+)*"):
 			self.mPrintUtil.show("你的计算结果格式错误\n")
@@ -107,6 +113,10 @@ class CalculateUtil(BaseUtil):
 				self.mPrintUtil.show("你的计算结果错误 \n")
 				mCalculateResult.error_count += 1
 				mCalculateData.is_input_calculate_result_right = False
+
+			calculate_date = time.time()
+			mCalculateData.calculate_date = calculate_date
+			self.mDBUtil.insert_to_calculate(mCalculateData)
 
 			mCalculateData.input_calculate_result = input_content
 			mCalculateResult.total_count += 1

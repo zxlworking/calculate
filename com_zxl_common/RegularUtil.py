@@ -2,6 +2,8 @@
 #coding=utf-8
 import re
 from com_zxl_common.BaseUtil import *
+
+
 class RegularUtil(BaseUtil):
 	# def __init__(self):
 	# 	self.mPrintUtil.show("RegularUtil init...")
@@ -10,3 +12,4 @@ class RegularUtil(BaseUtil):
 		regular_result = pattern.match(content)
 		# regular_result = re.match(regular_str, content)
 		return regular_result
+

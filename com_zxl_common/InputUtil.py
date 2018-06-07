@@ -2,6 +2,8 @@
 #coding=utf-8
 from com_zxl_common.BaseUtil import *
 from com_zxl_common.RegularUtil import *
+
+
 class InputUtil(BaseUtil):
 
 	mRegularUtil = RegularUtil()

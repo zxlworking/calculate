@@ -11,6 +11,7 @@ from com_zxl_data.CalculateResult import *
 
 mPrintUtil = PrintUtil()
 
+
 class Calculate:
 	mSigintUtil = SigintUtil()
 	mCalculateUtil = CalculateUtil()
@@ -40,9 +41,11 @@ class Calculate:
 				print "\nByeBye\n"
 				break
 
+
 if __name__ == "__main__":
 	# mPrintUtil.show("Calculate main...")
 	mCalculate = Calculate()
 	mCalculate.start()
+
 # else:
 # 	mPrintUtil.show("Calculate no main...")
