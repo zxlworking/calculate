@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!C:\Python27\python.exe
 #coding=utf-8
 
 import random

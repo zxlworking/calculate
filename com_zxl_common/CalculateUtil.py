@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!C:\Python27\python.exe
 #coding=utf-8
 import random
 import sys
@@ -116,8 +116,8 @@ class CalculateUtil(BaseUtil):
 
 			calculate_date = time.time()
 			mCalculateData.calculate_date = calculate_date
+			mCalculateData.input_calculate_result = input_content
 			self.mDBUtil.insert_to_calculate(mCalculateData)
 
-			mCalculateData.input_calculate_result = input_content
 			mCalculateResult.total_count += 1
 			mCalculateResult.mCalculateResultList.append(mCalculateData)

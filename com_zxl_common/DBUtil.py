@@ -1,6 +1,7 @@
-#!/usr/bin/env python
+#!C:\Python27\python.exe
 #coding=utf-8
 import mysql.connector
+import json
 from mysql.connector import errorcode
 from com_zxl_common.BaseUtil import *
 from com_zxl_db.CalculateDB import *
@@ -66,7 +67,32 @@ class DBUtil(BaseUtil):
         cursor.execute(CalculateDB.INSERT_CALCULATE_SQL, data_calculate)
         cnx.commit()
 
+    def query_to_calculate(self, page, count):
+        if page is None or count is None:
+            #self.mPrintUtil.show("query_to_calculate...no param page = %s,count = %s" % (page, count))
+            return
+        query_param = (str(int(page) * int(count)), str(count))
+        ######
+        #self.mPrintUtil.show(query_param)
+        ######
+        cursor.execute(CalculateDB.QUERY_CALCULATE_SQL % query_param)
+        result_element_list = []
+        for (_id, calculate_arg1, calculate_arg2, calculate_operator_arg, calculate_operator_str, calculate_result,
+             input_calculate_result, is_input_calculate_result_right, calculate_date) in cursor:
+            #print("{} {} {} {} {} {} {} {} {} ".format(_id, calculate_arg1, calculate_arg2, calculate_operator_arg,
+                                                         # calculate_operator_str, calculate_result,
+                                                         # input_calculate_result, is_input_calculate_result_right,
+                                                         # calculate_date))
+            result_element = {"_id": _id, "calculate_arg1": calculate_arg1, "calculate_arg2": calculate_arg2,
+                              "calculate_operator_arg": calculate_operator_arg,
+                              "calculate_operator_str": calculate_operator_str,
+                              "calculate_result": calculate_result, "input_calculate_result": input_calculate_result,
+                              "is_input_calculate_result_right": is_input_calculate_result_right,
+                              "calculate_date": calculate_date}
+            result_element_list.append(result_element)
+        result = {"result": result_element_list}
+        return json.dumps(result)
+
     def close_db(self):
         cursor.close()
         cnx.close()
-

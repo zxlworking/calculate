@@ -1,6 +1,5 @@
-#!/usr/bin/evn python
+#!C:\Python27\python.exe
 #coding=utf-8
-from com_zxl_common.PrintUtil import *
 
 
 class CalculateDB:
@@ -21,6 +20,15 @@ class CalculateDB:
         "  PRIMARY KEY (`_id`)"
         ") ENGINE=InnoDB")
 
-    INSERT_CALCULATE_SQL = ("INSERT INTO " + DB_NAME + " "
-                    "(calculate_arg1, calculate_arg2, calculate_operator_arg, calculate_operator_str, calculate_result, input_calculate_result, is_input_calculate_result_right, calculate_date) "
-                    "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
+    INSERT_CALCULATE_SQL = ("INSERT INTO " + DB_NAME + " " "(calculate_arg1, calculate_arg2, calculate_operator_arg, "
+                                                       "calculate_operator_str, "
+                                                       "calculate_result, " "input_calculate_result, "
+                                                       "is_input_calculate_result_right, "
+                                                       "calculate_date) " 
+                                                       "VALUES (%s, %s, %s, %s, %s, %s, %s, %s)")
+
+    QUERY_CALCULATE_SQL = ("SELECT _id, calculate_arg1, calculate_arg2, calculate_operator_arg, "
+                           "calculate_operator_str, calculate_result, input_calculate_result, "
+                           "is_input_calculate_result_right, "
+                           "calculate_date FROM " + DB_NAME +
+                           " LIMIT %s , %s")
