@@ -32,3 +32,5 @@ class CalculateDB:
                            "is_input_calculate_result_right, "
                            "calculate_date FROM " + DB_NAME +
                            " LIMIT %s , %s")
+
+    QUERY_CALCULATE_TOTAL_COUNT_SQL = ("SELECT COUNT(*)total_count FROM " + DB_NAME)

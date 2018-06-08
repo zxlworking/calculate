@@ -93,6 +93,11 @@ class DBUtil(BaseUtil):
         result = {"result": result_element_list}
         return json.dumps(result)
 
+    def query_to_calculate_total_count(self):
+        cursor.execute(CalculateDB.QUERY_CALCULATE_TOTAL_COUNT_SQL)
+        for(total_count, ) in cursor:
+            return total_count
+
     def close_db(self):
         cursor.close()
         cnx.close()

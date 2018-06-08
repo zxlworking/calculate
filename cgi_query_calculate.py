@@ -23,6 +23,9 @@ if page is None or count is None:
     page = 0
     count = 10
 
+total_count = mDBUtil.query_to_calculate_total_count()
+total_count = total_count / count + 1
+
 result = mDBUtil.query_to_calculate(page, count)
 #print "result-->%s" + result
 if not result is None:
@@ -68,7 +71,7 @@ if not result is None:
                     <tr>
                         <td><button>上一页</button></td>
                     """ + \
-                        "<td><center>第%s页</center></td>" % (int(page) + 1) + \
+                        "<td><center>%s/%s<input id=\"current_page\" type=\"hidden\" value=\"%s\" hide=true/></center></td>" % ((int(page) + 1), total_count, page) + \
                     """
                         <td><button>下一页</button></td>
                     </tr>
