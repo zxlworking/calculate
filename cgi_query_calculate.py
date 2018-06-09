@@ -21,7 +21,7 @@ mPrintUtil = PrintUtil()
 
 if page is None or count is None:
     page = 0
-    count = 10
+    count = 5
 
 total_count = mDBUtil.query_to_calculate_total_count()
 total_count = total_count / count + 1
@@ -51,6 +51,24 @@ if not result is None:
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
             <title>test title</title>
+            
+            <script language="javascript"type="text/javascript">
+                function load_pre_page(){
+                    current_page = document.getElementById("current_page").value;
+                    if(current_page > 0){
+                        current_page = current_page - 1;
+                    }
+                    window.location.href="http://localhost/cgi_calculate/cgi/cgi_query_calculate.py?page="+current_page+"&count=5";
+                }
+                function load_next_page(){
+                    current_page = document.getElementById("current_page").value;
+                    total_count = document.getElementById("total_count").value;
+                    if(current_page < total_count){
+                        current_page = current_page + 1;
+                    }
+                    window.location.href="http://localhost/cgi_calculate/cgi/cgi_query_calculate.py?page="+current_page+"&count=5";
+                }
+            </script>
         </head>
         <body>
             <form>
@@ -69,9 +87,9 @@ if not result is None:
                       to_show_data_str + \
                     """
                     <tr>
-                        <td><button>上一页</button></td>
+                        <td><button onclick="load_pre_page()">上一页</button></td>
                     """ + \
-                        "<td><center>%s/%s<input id=\"current_page\" type=\"hidden\" value=\"%s\" hide=true/></center></td>" % ((int(page) + 1), total_count, page) + \
+                        "<td><center>%s/%s<input id=\"current_page\" type=\"hidden\" value=\"%s\" hide=true/><input id=\"total_count\" type=\"hidden\" value=\"%s\" hide=true/></center></td>" % ((int(page) + 1), total_count, page, total_count) + \
                     """
                         <td><button>下一页</button></td>
                     </tr>
@@ -80,8 +98,6 @@ if not result is None:
         </body>
     </html>
     """
-
-
 
 
 

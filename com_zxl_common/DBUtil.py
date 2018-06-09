@@ -9,11 +9,13 @@ from com_zxl_data.CalculateData import *
 
 
 class DBUtil(BaseUtil):
+    # host = '118.25.178.69'
+    host = 'localhost'
     def __init__(self):
         global cnx
         global cursor
         try:
-            cnx = mysql.connector.connect(user='zxl', password='root', host='118.25.178.69', database=CalculateDB.DATABASE_NAME)
+            cnx = mysql.connector.connect(user='zxl', password='root', host=self.host, database=CalculateDB.DATABASE_NAME)
             cursor = cnx.cursor()
         except mysql.connector.Error as err:
             if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
@@ -21,7 +23,7 @@ class DBUtil(BaseUtil):
                 exit(1)
             elif err.errno == errorcode.ER_BAD_DB_ERROR:
                 self.mPrintUtil.show("Database does not exist")
-                cnx = mysql.connector.connect(user='zxl', password='root', host='118.25.178.69')
+                cnx = mysql.connector.connect(user='zxl', password='root', host=self.host)
                 cursor = cnx.cursor()
                 self.__create_database()
                 self.__create_table()
