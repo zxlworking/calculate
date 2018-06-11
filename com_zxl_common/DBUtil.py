@@ -92,8 +92,7 @@ class DBUtil(BaseUtil):
                               "is_input_calculate_result_right": is_input_calculate_result_right,
                               "calculate_date": calculate_date}
             result_element_list.append(result_element)
-        result = {"result": result_element_list}
-        return json.dumps(result)
+        return result_element_list
 
     def query_to_calculate_total_count(self):
         cursor.execute(CalculateDB.QUERY_CALCULATE_TOTAL_COUNT_SQL)

@@ -36,12 +36,12 @@ to_next_page = int(page)
 if int(to_next_page) < int(total_count) - 1:
     to_next_page = to_next_page + 1
 
-result = mDBUtil.query_to_calculate(page, count)
+result_element_list = mDBUtil.query_to_calculate(page, count)
 
-if (not result is None) and (not json.loads(result)['result'] is None):
+if not result_element_list is None:
 
     to_show_data_str = ""
-    for json_element_result in json.loads(result)['result']:
+    for json_element_result in result_element_list:
         check_result = "正确" if json_element_result["is_input_calculate_result_right"] == 1 else "错误"
         to_show_data_str = to_show_data_str + \
                            "<tr><td><center>%s</center></td>" % json_element_result["_id"] + \
