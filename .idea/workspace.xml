@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d4493c0-b624-446c-b8b9-0d321292c498" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/server_query_calculate.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cgi_query_calculate.py" beforeDir="false" afterPath="$PROJECT_DIR$/cgi_query_calculate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/com_zxl_common/DBUtil.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_common/DBUtil.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/com_zxl_data/CalculateData.py" beforeDir="false" afterPath="$PROJECT_DIR$/com_zxl_data/CalculateData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server_query_calculate.py" beforeDir="false" afterPath="$PROJECT_DIR$/server_query_calculate.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="server_query_calculate.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="server_query_calculate.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/server_query_calculate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
+            <state relative-caret-position="373">
+              <caret line="39" column="28" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="28" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -44,11 +43,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cgi_query_calculate.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CalculateData.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/com_zxl_data/CalculateData.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cgi_query_calculate.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cgi_query_calculate.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+            <state relative-caret-position="-608">
+              <caret line="28" selection-start-line="28" selection-end-line="29" selection-end-column="47" />
               <folding>
                 <element signature="e#40#57#0" expanded="true" />
               </folding>
@@ -94,15 +102,15 @@
         <option value="$PROJECT_DIR$/com_zxl_common/RegularUtil.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/SigintUtil.py" />
         <option value="$PROJECT_DIR$/com_zxl_data/BaseData.py" />
-        <option value="$PROJECT_DIR$/com_zxl_data/CalculateData.py" />
         <option value="$PROJECT_DIR$/com_zxl_data/CalculateResult.py" />
         <option value="$PROJECT_DIR$/Calculate.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/CalculateUtil.py" />
         <option value="$PROJECT_DIR$/com_zxl_db/CalculateDB.py" />
         <option value="$PROJECT_DIR$/server_quer_calculate.py" />
         <option value="$PROJECT_DIR$/com_zxl_common/DBUtil.py" />
-        <option value="$PROJECT_DIR$/server_query_calculate.py" />
         <option value="$PROJECT_DIR$/cgi_query_calculate.py" />
+        <option value="$PROJECT_DIR$/com_zxl_data/CalculateData.py" />
+        <option value="$PROJECT_DIR$/server_query_calculate.py" />
       </list>
     </option>
   </component>
@@ -124,6 +132,11 @@
             <path>
               <item name="calculate" type="b2602c69:ProjectViewProjectNode" />
               <item name="calculate" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="calculate" type="b2602c69:ProjectViewProjectNode" />
+              <item name="calculate" type="462c0819:PsiDirectoryNode" />
+              <item name="com_zxl_data" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -297,7 +310,14 @@
       <option name="project" value="LOCAL" />
       <updated>1528698406564</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add query calculate server">
+      <created>1528703415205</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1528703415205</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -356,7 +376,8 @@
     <MESSAGE value="add DBUtil" />
     <MESSAGE value="add CGI function" />
     <MESSAGE value="modify calculate cgi function" />
-    <option name="LAST_COMMIT_MESSAGE" value="modify calculate cgi function" />
+    <MESSAGE value="add query calculate server" />
+    <option name="LAST_COMMIT_MESSAGE" value="add query calculate server" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/com_zxl_common/CalculateUtil.py">
@@ -612,13 +633,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/com_zxl_data/CalculateData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="24" selection-start-column="24" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://C:/Python27/Lib/site-packages/mysql/connector/cursor.py" />
     <entry file="file://$PROJECT_DIR$/com_zxl_data/CalculateResult.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -648,16 +662,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server_query_calculate.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/com_zxl_common/DBUtil.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="472">
@@ -668,12 +672,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/com_zxl_data/CalculateData.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="39" selection-start-line="15" selection-start-column="39" selection-end-line="15" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cgi_query_calculate.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
+        <state relative-caret-position="-608">
+          <caret line="28" selection-start-line="28" selection-end-line="29" selection-end-column="47" />
           <folding>
             <element signature="e#40#57#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server_query_calculate.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="373">
+          <caret line="39" column="28" selection-start-line="39" selection-start-column="16" selection-end-line="39" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>

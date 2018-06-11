@@ -13,7 +13,7 @@ class CalculateData(BaseData):
 
 	calculate_result = 0
 	input_calculate_result = ""
-	is_input_calculate_result_right = True
+	is_input_calculate_result_right = 0
 
 	calculate_date = 0
 
