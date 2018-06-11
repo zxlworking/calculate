@@ -8,6 +8,9 @@ import time
 from com_zxl_common.DBUtil import *
 from com_zxl_common.PrintUtil import *
 
+def add_int(arg1, arg2):
+    return int(arg1) + int(arg2)
+
 reload(sys)
 sys.setdefaultencoding("utf8")
 
@@ -24,11 +27,18 @@ if page is None or count is None:
     count = 5
 
 total_count = mDBUtil.query_to_calculate_total_count()
-total_count = total_count / count + 1
+total_count = int(total_count) / int(count) + 1
+
+to_pre_page = int(page)
+if int(to_pre_page) > 0:
+    to_pre_page = to_pre_page - 1;
+to_next_page = int(page)
+if int(to_next_page) < int(total_count) - 1:
+    to_next_page = to_next_page + 1
 
 result = mDBUtil.query_to_calculate(page, count)
-#print "result-->%s" + result
-if not result is None:
+
+if (not result is None) and (not json.loads(result)['result'] is None):
 
     to_show_data_str = ""
     for json_element_result in json.loads(result)['result']:
@@ -54,19 +64,14 @@ if not result is None:
             
             <script language="javascript"type="text/javascript">
                 function load_pre_page(){
-                    current_page = document.getElementById("current_page").value;
-                    if(current_page > 0){
-                        current_page = current_page - 1;
-                    }
-                    window.location.href="http://localhost/cgi_calculate/cgi/cgi_query_calculate.py?page="+current_page+"&count=5";
+                                    """ + \
+                                    "location.href=\"http://localhost/cgi_calculate/cgi/cgi_query_calculate.py?page=%s&count=5\";" % (add_int(page, 1)) + \
+                                    """
                 }
                 function load_next_page(){
-                    current_page = document.getElementById("current_page").value;
-                    total_count = document.getElementById("total_count").value;
-                    if(current_page < total_count){
-                        current_page = current_page + 1;
-                    }
-                    window.location.href="http://localhost/cgi_calculate/cgi/cgi_query_calculate.py?page="+current_page+"&count=5";
+                                    """ + \
+                                    "location.href=\"http://localhost/cgi_calculate/cgi/cgi_query_calculate.py?page=%s&count=5\";" % to_next_page + \
+                                    """
                 }
             </script>
         </head>
@@ -87,19 +92,23 @@ if not result is None:
                       to_show_data_str + \
                     """
                     <tr>
-                        <td><button onclick="load_pre_page()">上一页</button></td>
+                        <td><button onclick="load_pre_page()" type="button">上一页</button></td>
                     """ + \
-                        "<td><center>%s/%s<input id=\"current_page\" type=\"hidden\" value=\"%s\" hide=true/><input id=\"total_count\" type=\"hidden\" value=\"%s\" hide=true/></center></td>" % ((int(page) + 1), total_count, page, total_count) + \
+                        "<td><center>%s/%s</center></td>" % ((int(page) + 1), total_count) + \
                     """
-                        <td><button>下一页</button></td>
+                        <td><button onclick="load_next_page()" type="button">下一页</button></td>
                     </tr>
                 </table>
             </form>
         </body>
     </html>
     """
+else:
+    print "No Data"
 
-
+# print "page-->%s" % page + "--->total_count--->%s" % total_count
+# print "to_pre_page-->%s" % to_pre_page + "--->to_next_page--->%s" % to_next_page + "--->total_count--->%s" % total_count
+# print "result-->%s" % result
 
 
 # if __name__ == "__main__":
