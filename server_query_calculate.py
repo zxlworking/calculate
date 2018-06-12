@@ -5,14 +5,10 @@ import time
 from com_zxl_common.DBUtil import *
 from com_zxl_common.PrintUtil import *
 
-def add_int(arg1, arg2):
-    return int(arg1) + int(arg2)
-
 reload(sys)
 sys.setdefaultencoding("utf8")
 
 form = cgi.FieldStorage()
-
 page = form.getvalue("page")
 count = form.getvalue("count")
 
@@ -20,14 +16,14 @@ mDBUtil = DBUtil()
 mPrintUtil = PrintUtil()
 result = {}
 
-total_count = mDBUtil.query_to_calculate_total_count()
-total_page = int(total_count) / int(count) + 1
-
 if page is None or count is None:
     result["code"] = -1
     result["desc"] = "param error"
 else:
     if not result is None:
+        total_count = mDBUtil.query_to_calculate_total_count()
+        total_page = int(total_count) / int(count) + 1
+
         total_count = mDBUtil.query_to_calculate_total_count()
         total_count = int(total_count) / int(count) + 1
 
