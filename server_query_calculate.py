@@ -21,7 +21,7 @@ mPrintUtil = PrintUtil()
 result = {}
 
 total_count = mDBUtil.query_to_calculate_total_count()
-total_count = int(total_count) / int(count) + 1
+total_page = int(total_count) / int(count) + 1
 
 if page is None or count is None:
     result["code"] = -1
@@ -35,7 +35,7 @@ else:
 
         result["code"] = 0
         result["desc"] = "success"
-        result["total_count"] = total_count
+        result["total_page"] = total_page
         result["page_count"] = count
         result["current_page"] = page
         result["result"] = result_element_list
