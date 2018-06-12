@@ -65,7 +65,7 @@ if not result_element_list is None:
             <script language="javascript"type="text/javascript">
                 function load_pre_page(){
                                     """ + \
-                                    "location.href=\"http://www.zxltest.cn/cgi_calculate/cgi/cgi_query_calculate.py?page=%s&count=5\";" % (add_int(page, 1)) + \
+                                    "location.href=\"http://www.zxltest.cn/cgi_calculate/cgi/cgi_query_calculate.py?page=%s&count=5\";" % to_pre_page + \
                                     """
                 }
                 function load_next_page(){
