@@ -65,12 +65,12 @@ if not result_element_list is None:
             <script language="javascript"type="text/javascript">
                 function load_pre_page(){
                                     """ + \
-                                    "location.href=\"http://www.zxltest.cn/cgi_calculate/cgi/cgi_query_calculate.py?page=%s&count=5\";" % to_pre_page + \
+                                    "location.href=\"http://118.25.178.69/cgi_server/cgi/cgi_query_calculate.py?page=%s&count=5\";" % to_pre_page + \
                                     """
                 }
                 function load_next_page(){
                                     """ + \
-                                    "location.href=\"http://www.zxltest.cn/cgi_calculate/cgi/cgi_query_calculate.py?page=%s&count=5\";" % to_next_page + \
+                                    "location.href=\"http://118.25.178.69/cgi_server/cgi/cgi_query_calculate.py?page=%s&count=5\";" % to_next_page + \
                                     """
                 }
             </script>

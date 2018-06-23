@@ -41,4 +41,4 @@ else:
 
 print "Content-type:text/html"
 print ""
-print json.dumps(result)
+print json.dumps(result, encoding="utf-8", ensure_ascii=False)
